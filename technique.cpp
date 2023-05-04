@@ -58,8 +58,29 @@ int main()
         cin >> l >> r;
         cout << pref[r] - pref[l - 1] << endl;
     }
-
-
+//////////////////////////////////////////////////
+     ll n;
+    cin >> n;
+    vec v(n), pref(n + 5);
+    for (auto &x : v)
+    {
+        cin >> x;
+    }
+    for (ll i = 1; i <= n; i++)
+    {
+        pref[i] = pref[i - 1] + v[i - 1];
+    }
+     // odd length subarray sum;
+     ll ans=0;
+     for(ll i=1;i<=n;i+=2){
+        for(ll l=i;l<=n;l++){
+            ans+=pref[l]-pref[l-i];
+        }
+     }
+     cout<<ans<<endl;
 
     // main();
 }
+
+
+
